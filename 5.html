@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5</title>
+    <style>
+        body {
+            transition: background-color 0.5s, color 0.5s, font-size 0.5s;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+            font-size: 16px;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: white;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .light-mode button {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        .dark-mode button {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+<h1>Theme Switcher</h1>
+<p>Click the buttons below to switch between light mode and dark mode.</p>
+
+<button onclick="setLightMode()">Light Mode</button>
+<button onclick="setDarkMode()">Dark Mode</button>
+
+<script>
+    function setLightMode() {
+        document.body.className = 'light-mode';
+    }
+
+    function setDarkMode() {
+        document.body.className = 'dark-mode';
+    }
+</script>
+
+</body>
+</html>

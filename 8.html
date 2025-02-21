@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        select {
+            width: 200px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Country-State Selection</h1>
+    <label for="country">Select Country:</label>
+    <select id="country">
+        <option value="">--Select a Country--</option>
+        <option value="USA">USA</option>
+        <option value="India">India</option>
+        <option value="UK">UK</option>
+    </select>
+
+    <label for="state">Select State:</label>
+    <select id="state" disabled>
+        <option value="">--Select a State--</option>
+    </select>
+
+    <script>
+        const countryStateMap = {
+            USA: ["California", "Texas", "New York"],
+            India: ["Maharashtra", "Karnataka", "Delhi"],
+            UK: ["England", "Scotland", "Wales"]
+        };
+
+        const countrySelect = document.getElementById("country");
+        const stateSelect = document.getElementById("state");
+
+        countrySelect.addEventListener("change", function() {
+            const selectedCountry = this.value;
+            stateSelect.innerHTML = '<option value="">--Select a State--</option>';
+            if (selectedCountry) {
+                const states = countryStateMap[selectedCountry];
+                states.forEach(state => {
+                    const option = document.createElement("option");
+                    option.value = state;
+                    option.textContent = state;
+                    stateSelect.appendChild(option);
+                });
+            stateSelect.disabled = false; 
+        } else {
+            stateSelect.disabled = true; 
+        }
+    });
+    </script>
+</body>
+</html>

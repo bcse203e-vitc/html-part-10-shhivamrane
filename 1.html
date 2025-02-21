@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Number Guessing Game</h1>
+<p>Guess a number between 1 and 50:</p>
+<input type="number" id="userGuess" min="1" max="50">
+<button onclick="guessNumber()">Guess</button>
+<p class="message" id="message"></p>
+
+<script>
+    const randomNumber = Math.floor(Math.random() * 50) + 1;
+    let chances = 3; 
+    let guessedCorrectly = false;
+
+    function guessNumber() {
+        const userGuess = parseInt(document.getElementById("userGuess").value);
+        const messageElement = document.getElementById("message");
+
+        if (isNaN(userGuess) || userGuess < 1 || userGuess > 50) {
+            messageElement.textContent = "Please enter a valid number between 1 and 50.";
+            return;
+        }
+
+        chances--;
+
+        if (userGuess === randomNumber) {
+            messageElement.textContent = "Congratulations! You guessed the correct number: " + randomNumber;
+            guessedCorrectly = true; 
+        } else if (chances > 0) {
+            if (userGuess < randomNumber) {
+                messageElement.textContent = "Too low! You have " + chances + " chances left.";
+            } else {
+                messageElement.textContent = "Too high! You have " + chances + " chances left.";
+            }
+        } else {
+            messageElement.textContent = "Game over! The correct number was: " + randomNumber;
+            document.getElementById("userGuess").disabled = true; 
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        textarea {
+            width: 300px;
+            height: 150px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .counter {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .alert {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Word and Character Counter</h1>
+    <textarea id="textInput" placeholder="Type something..."></textarea>
+    <div class="counter">
+        <p>Character Count: <span id="charCount">0</span></p>
+        <p>Word Count: <span id="wordCount">0</span></p>
+        <p id="alertMessage" class="alert"></p>
+    </div>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const charCountDisplay = document.getElementById('charCount');
+        const wordCountDisplay = document.getElementById('wordCount');
+        const alertMessage = document.getElementById('alertMessage');
+
+        textInput.addEventListener('input', () => {
+            const text = textInput.value;
+            const charCount = text.length;
+            const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+            charCountDisplay.textContent = charCount;
+            wordCountDisplay.textContent = wordCount;
+
+            if (charCount > 200) {
+                alertMessage.textContent = "Character limit exceeded!";
+                alert("You have exceeded the 200 character limit!");
+            } else {
+                alertMessage.textContent = ""; 
+            }
+        });
+    </script>
+</body>
+</html>

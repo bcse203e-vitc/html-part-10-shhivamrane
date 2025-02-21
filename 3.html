@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .summary {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Pizza Order Form</h1>
+<form id="pizzaForm">
+    <h2>Select Pizza Size:</h2>
+    <label>
+        <input type="radio" name="size" value="Small" required> Small
+    </label><br>
+    <label>
+        <input type="radio" name="size" value="Medium"> Medium
+    </label><br>
+    <label>
+        <input type="radio" name="size" value="Large"> Large
+    </label><br>
+
+    <h2>Select Toppings:</h2>
+    <label>
+        <input type="checkbox" name="toppings" value="Cheese"> Cheese
+    </label><br>
+    <label>
+        <input type="checkbox" name="toppings" value="Pepperoni"> Pepperoni
+    </label><br>
+    <label>
+        <input type="checkbox" name="toppings" value="Mushrooms"> Mushrooms
+    </label><br>
+    <label>
+        <input type="checkbox" name="toppings" value="Olives"> Olives
+    </label><br>
+
+    <button type="submit">Submit Order</button>
+</form>
+
+<p class="summary" id="orderSummary"></p>
+
+<script src="3.js"></script>
+
+</body>
+</html>

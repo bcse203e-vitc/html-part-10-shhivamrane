@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Multiplication Table Generator</h1>
+
+<fieldset>
+    <legend>Input Number</legend>
+    <label for="number">Enter a number (1-10): </label>
+    <input type="number" id="number" min="1" max="10" required>
+    <button onclick="generateTable()">Generate Table</button>
+</fieldset>
+
+<div id="output"></div>
+
+<script>
+    function generateTable() {
+        const number = document.getElementById("number").value;
+
+        if (number < 1 || number > 10) {
+            alert("Please enter a number between 1 and 10.");
+            return;
+        }
+
+        let tableHTML = "<table><tr><th>Multiplier</th><th>Result</th></tr>";
+        for (let i = 1; i <= 10; i++) {
+            const result = number * i;
+            tableHTML += `<tr><td>${number} x ${i}</td><td>${result}</td></tr>`;
+        }
+        tableHTML += "</table>";
+
+        document.getElementById("output").innerHTML = tableHTML;
+    }
+</script>
+
+</body>
+</html>
